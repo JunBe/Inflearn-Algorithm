@@ -7,35 +7,23 @@ public class Ex11 {
     public static int solution(int N, int[][] studentsClass) {
         int ans = 0;
         int max = Integer.MIN_VALUE; //최소값으로 초기화
+
         int[] cnt = new int[N]; //같은 반이었던 학생 수
 
-        for (int i = 0; i < N; i++) { //1학년부터
-            //1번학생부터 비교
-            int[] student = new int[N];
-            for (int j = 0; j < 5; j++) { //학년
-                //1학년 먼저 비교
-                int classNum = studentsClass[i][j]; //1번학생 학년별 반 번호
-                for (int k = 0; k < N; k++) {
-                    if (i == k) {
-                        continue;
-                    }
-                    if (classNum == studentsClass[k][j]) {
-                        student[j] += 1;
+        for (int i = 0; i < N; i++) { //1번 학생부터 N번 학생까지 비교
+            for (int j = 0; j < N; j++) { //학생 번호
+                if (i == j) { //ex) 1번 학생과 1번 학생은 비교할 필요 x
+                    continue;
+                }
+
+                for (int k = 0; k < 5; k++) {
+                    if (studentsClass[i][k]==studentsClass[j][k]) { //같은 반이라면 카운트
+                        cnt[i]++;
+                        break; //중복 학생이 나와도 중복 카운트 하지 않도록 break
                     }
                 }
             }
 
-            for (int x = 0; x < N; x++) {
-                if (student[x] > 0) {
-                    cnt[i]++;
-                }
-            }
-
-        }
-
-        System.out.println("cnt");
-        for (int i : cnt) {
-            System.out.print(i+" ");
         }
 
         for (int i = 0; i < N; i++) {
@@ -45,7 +33,7 @@ public class Ex11 {
             }
         }
 
-        return ans; //중복된 반 개수 제거가 안된다..
+        return ans;
     }
 
     public static void main(String[] args) {
