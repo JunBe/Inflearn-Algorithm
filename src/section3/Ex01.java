@@ -2,7 +2,7 @@ package section3;
 
 import java.util.Scanner;
 
-public class Ex01 {
+public class Ex01 {//런타임 오류
 
     public static int[] solution(int N, int M, int[] arr1, int[] arr2) {
         int[] ans = new int[N + M];
