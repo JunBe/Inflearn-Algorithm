@@ -2,16 +2,13 @@ package section5;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Stack;
 //공주 구하기
 public class Ex06 {
     public static int solution(int N, int K) {
         int ans = 0;
         int cnt = 1;
-        Stack<Integer> stack = new Stack<>();
 
         ArrayList<Integer> arrayList = new ArrayList<>();
-        int[] arr = new int[N];
         for (int i = 1; i <= N; i++) { // 1 ~ N 왕자 stack에 넣기
             arrayList.add(i);
         }
