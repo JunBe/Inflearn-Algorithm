@@ -11,7 +11,7 @@ public class Ex06_2 {
         int cnt = 1;
 
         Queue<Integer> queue = new LinkedList<>();
-        for (int i = 1; i <= N; i++) {
+        for (int i = 1; i <= N; i++) { //큐에 1~N 넣기
             queue.offer(i);
         }
 
@@ -24,7 +24,7 @@ public class Ex06_2 {
                 cnt++;
             }
         }
-        ans = queue.peek();
+        ans = queue.peek(); // 큐에 마지막 남은 하나가 ans
         return ans;
     }
 
