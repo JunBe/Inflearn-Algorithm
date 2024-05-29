@@ -11,14 +11,14 @@ public class Ex07 {
         Queue<Character> queue = new LinkedList<>();
         for (Character x : str2.toCharArray()) {
             for (Character y : str1.toCharArray()) {
-                if (y == x) {
+                if (y == x) { // str2를 돌며 str1의 원소와 같다면 그 원소를 queue에 추가시간다.
                     queue.offer(x);
                 }
             }
         }
 
-        for (Character x : str1.toCharArray()) {
-            if (x != queue.poll()) {
+        for (Character x : str1.toCharArray()) { //str1와 queue의 값과 순서가 같아야한다.
+            if (x != queue.poll()) { //값과 순서가 일치하지 않다면 NO 반환
                 return "NO";
             }
         }
