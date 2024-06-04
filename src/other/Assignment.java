@@ -1,6 +1,7 @@
 package other;
 
 import java.util.Scanner;
+
 //backtracking - 0-1 Knapsack Problem
 public class Assignment {
     //전역 변수
