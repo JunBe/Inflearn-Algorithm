@@ -25,16 +25,7 @@ public class Ex07 {
                 }
             }
         }
-
-        for (int i = 0; i < N - 1; i++) {
-            if (arr[i][0] == arr[i + 1][0]) {
-
-            }
-        }
-
-
         return arr;
-
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
