@@ -1,8 +1,8 @@
-package section4;
+package section3;
 
 import java.util.Scanner;
 
-public class Ex01_2 {
+public class Ex01_3 {
     private static int[] solution(int[] arr1, int[] arr2, int N, int M) {
         int[] ans = new int[N + M];
         int lp = 0, rp = 0;
@@ -41,7 +41,6 @@ public class Ex01_2 {
         for (int i = 0; i < M; i++) {
             arr2[i] = sc.nextInt();
         }
-
         int[] ans = solution(arr1, arr2, N, M);
         for(int val : ans){
             System.out.print(val + " ");
