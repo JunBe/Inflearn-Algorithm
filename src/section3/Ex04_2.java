@@ -16,9 +16,12 @@ public class Ex04_2 {
                 sum -= arr[lt++];
             } else { //M보다 작을 때 -> 현재 arr[rt]값을 더한 후 rt카운트
                 sum += arr[rt++];
-                if (sum == M && rt == N) { //rt가 마지막 인덱스에 도착했을 때 sum과 M이 같다면
-                                           //while문이 바로 끝나므로 ans 카운트 해주고 종료
-                    ans++;
+                while (sum > M) {
+                    sum -= arr[lt++];
+                    if (sum == M && rt == N) { //rt가 마지막 인덱스에 도착했을 때 sum과 M이 같다면
+                        //while문이 바로 끝나므로 ans 카운트 해주고 종료
+                        ans++;
+                    }
                 }
             }
 
