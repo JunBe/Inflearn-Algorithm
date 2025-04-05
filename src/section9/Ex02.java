@@ -4,48 +4,63 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-//씨름 선수
-//
-//class Player implements Comparable<Player> {
-//    int height;
-//    int weight;
-//
-//    Player(int height, int weight) {
-//        this.height = height;
-//        this.weight = weight;
-//    }
-//
-//    @Override
-//    public int compareTo(Player o) {
-//        return Integer.compare(o.height, this.height);
-//    }
-//}
-public class Ex02 {
-    public static int solution(int N, ArrayList<Player> player) {
-        int ans = 0;
-        Collections.sort(player); // 키 순 내림차순 정렬
+// 회의실 배정
+class MeetTime implements Comparable<MeetTime> {
+    int startTime;
+    int endTime;
 
-        int max = Integer.MIN_VALUE;
-        for (Player x : player) {
-            if (max < x.weight) { // 키가 작더라도 몸무게가 높으면 선수로 선발 가능
+    MeetTime(int startTime, int endTime) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+    @Override
+    public int compareTo(MeetTime o) {
+        if (this.endTime != o.endTime) {
+            return Integer.compare(this.endTime, o.endTime);
+        } else {
+            return Integer.compare(this.startTime, o.startTime);
+        }
+    }
+}
+
+
+public class Ex02 {
+
+    /**
+     * 2 3
+     * 1 4
+     * 3 5
+     * 4 6
+     * 5 7
+     */
+    public static int solution(int N, ArrayList<MeetTime> meetTimes) {
+        int ans = 1;
+        Collections.sort(meetTimes);
+        int endTime = meetTimes.get(0).endTime;
+
+        for (int i = 1; i < N; i++) {
+            if (meetTimes.get(i).startTime >= endTime) {
+                endTime = meetTimes.get(i).endTime;
                 ans++;
-                max = x.weight;
             }
         }
+
         return ans;
     }
 
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt(); //지원자 수
-        ArrayList<Player> player = new ArrayList<>(); // 키, 몸무게
+        int N = sc.nextInt();
+
+        ArrayList<MeetTime> meetTimes = new ArrayList<>();
+
         for (int i = 0; i < N; i++) {
-            int height = sc.nextInt();
-            int weight = sc.nextInt();
-            player.add(new Player(height, weight));
+            meetTimes.add(new MeetTime(sc.nextInt(), sc.nextInt()));
         }
 
-        System.out.println(solution(N, player));
+        System.out.println(solution(N, meetTimes));
+
+
     }
 }
